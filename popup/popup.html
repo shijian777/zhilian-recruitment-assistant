@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>智联邀约助手</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <section class="status-sticky">
+      <header>
+        <div>
+          <h1>智联邀约助手</h1>
+          <p id="state">正在读取页面状态…</p>
+        </div>
+        <span id="modeBadge" class="badge">测试</span>
+      </header>
+
+      <section class="stats">
+        <article><strong id="scanned">0</strong><span>已扫描</span></article>
+        <article><strong id="matched">0</strong><span>符合</span></article>
+        <article><strong id="sent">0</strong><span>已发送</span></article>
+        <article><strong id="unverified">0</strong><span>待核对</span></article>
+      </section>
+      <div class="live-summary">
+        <span>当前：<b id="currentCandidate">-</b></span>
+        <span id="lastReason">尚未运行</span>
+      </div>
+      </section>
+
+      <section class="panel">
+        <div class="mode-row">
+          <div><b>正式发送</b><small>关闭时只识别，不点击</small></div>
+          <label class="switch"><input id="formalMode" type="checkbox" /><span></span></label>
+        </div>
+        <div class="grid three">
+          <label>本次人数<input id="sessionLimit" type="number" min="1" max="200" /></label>
+          <label>发送间隔<input id="intervalSeconds" type="number" min="1" max="3600" /></label>
+          <label>每日上限<input id="dailyLimit" type="number" min="1" max="500" /></label>
+        </div>
+        <label>关键词<input id="keywords" placeholder="例：销售，AI，客户开发" /></label>
+        <label>城市<input id="cities" placeholder="不填则不限城市" /></label>
+        <div class="grid two">
+          <label>最低薪资(K)<input id="salaryMinK" type="number" min="0" placeholder="不限" /></label>
+          <label>最高薪资(K)<input id="salaryMaxK" type="number" min="0" placeholder="不限" /></label>
+        </div>
+        <label class="check"><input id="autoScroll" type="checkbox" />自动滚动加载更多候选人</label>
+      </section>
+
+      <section class="panel reply-panel">
+        <div class="reply-head">
+          <div><b>严格话术自动回复</b><small id="replyState">未启动</small></div>
+          <span><strong id="todayReplied">0</strong> 条</span>
+        </div>
+        <p>只发送唯一命中的已审核话术，方向不明或冲突时转人工。</p>
+        <div class="reply-actions">
+          <button id="openRules" class="secondary">管理话术库</button>
+          <button id="stopReply" class="secondary">停止监听</button>
+          <button id="startReply" class="primary">开启自动回复</button>
+        </div>
+      </section>
+
+      <p id="notice" class="notice"></p>
+      <div class="actions">
+        <button id="save" class="secondary">保存设置</button>
+        <button id="diagnose" class="secondary">页面诊断</button>
+        <button id="pause" class="secondary">暂停</button>
+        <button id="start" class="primary">开始运行</button>
+      </div>
+      <details>
+        <summary>运行详情</summary>
+        <pre id="details">尚无诊断信息</pre>
+      </details>
+    </main>
+    <script src="../src/core.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

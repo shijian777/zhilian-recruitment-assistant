@@ -1,0 +1,39 @@
+:root { font-family: "Microsoft YaHei UI", system-ui, sans-serif; color: #17373b; background: #f3f7f7; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { width: min(980px, calc(100% - 32px)); margin: 30px auto 60px; }
+header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px; }
+h1 { margin: 0; font-size: 28px; }
+h2 { margin: 0; font-size: 17px; }
+p { color: #6b8084; margin: 6px 0 0; }
+.enable { display: flex; align-items: center; gap: 8px; background: #dff7f2; color: #087f72; padding: 10px 14px; border-radius: 999px; font-weight: 700; }
+.enable input, .inline input { width: auto; margin: 0; }
+.card { background: white; border: 1px solid #dde8e9; border-radius: 13px; padding: 18px; margin-top: 14px; }
+.grid { display: grid; gap: 12px; }
+.grid.four { grid-template-columns: repeat(4, 1fr); }
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+label { display: block; color: #536b6f; font-size: 13px; margin-top: 12px; }
+input, textarea, select { width: 100%; border: 1px solid #d4e0e1; border-radius: 8px; padding: 10px; margin-top: 6px; font: inherit; outline: none; }
+input:focus, textarea:focus, select:focus { border-color: #0aa89d; box-shadow: 0 0 0 2px #dff7f2; }
+.section-title, .rule, footer, .buttons, .test-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.rule-list { margin-top: 12px; }
+.rule { border-top: 1px solid #e4ecec; padding: 12px 0; align-items: flex-start; }
+.rule:first-child { border-top: 0; }
+.rule strong, .rule span { display: block; }
+.rule span { color: #6b8084; font-size: 12px; margin-top: 4px; }
+.rule .reply { color: #365b60; max-width: 650px; }
+.rule-actions { display: flex; gap: 6px; white-space: nowrap; }
+.inline { display: flex; align-items: center; gap: 7px; }
+.buttons { justify-content: flex-end; margin-top: 12px; }
+button { border: 0; border-radius: 8px; padding: 9px 14px; cursor: pointer; font-weight: 700; }
+.primary { background: #0aa89d; color: white; }
+.secondary { background: #e7eff0; color: #34585d; }
+.danger { background: #fff0ed; color: #ae3d27; }
+.large { padding: 11px 22px; }
+.test-row { margin-top: 12px; }
+.test-row input { margin: 0; }
+.test-row button { white-space: nowrap; }
+#testResult { color: #315f64; }
+footer { margin-top: 18px; }
+footer #notice { color: #a85200; }
+@media (max-width: 720px) { .grid.four, .grid.two { grid-template-columns: 1fr; } header { display: block; } .enable { margin-top: 12px; width: fit-content; } }

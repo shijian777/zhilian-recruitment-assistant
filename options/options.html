@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>智联邀约助手 · 话术库</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div><h1>严格话术库</h1><p>只发送唯一命中的已审核固定话术；无命中或冲突时转人工。</p></div>
+        <label class="enable"><input id="enabled" type="checkbox" />允许自动回复</label>
+      </header>
+
+      <section class="card limits">
+        <h2>防误发与次数限制</h2>
+        <div class="grid four">
+          <label>检查间隔(秒)<input id="pollSeconds" type="number" min="3" max="3600" /></label>
+          <label>每日上限<input id="dailyLimit" type="number" min="1" max="200" /></label>
+          <label>单会话上限<input id="perConversationLimit" type="number" min="1" max="20" /></label>
+          <label>回复间隔(秒)<input id="intervalSeconds" type="number" min="1" max="3600" /></label>
+        </div>
+        <label>停止词<input id="stopKeywords" placeholder="例：不考虑，不要联系，已找到工作" /></label>
+      </section>
+
+      <section class="card">
+        <div class="section-title"><div><h2>话术规则</h2><p>触发词可填多个；同时命中多条话术时绝不发送。</p></div><span id="ruleCount">0 条</span></div>
+        <div id="ruleList" class="rule-list"></div>
+      </section>
+
+      <section class="card editor">
+        <h2 id="editorTitle">新增话术</h2>
+        <div class="grid two">
+          <label>话术名称<input id="ruleName" placeholder="例：面试时间" /></label>
+          <label>匹配方式<select id="matchMode"><option value="any">命中任一词</option><option value="all">必须命中全部词</option></select></label>
+        </div>
+        <label>触发词<input id="ruleKeywords" placeholder="例：有兴趣，可以了解" /></label>
+        <label>固定回复<textarea id="ruleReply" rows="4" placeholder="填写已审核、允许发送的完整话术"></textarea></label>
+        <label class="inline"><input id="ruleEnabled" type="checkbox" checked />启用这条话术</label>
+        <div class="buttons"><button id="cancelEdit" class="secondary" hidden>取消编辑</button><button id="addRule" class="primary">添加话术</button></div>
+      </section>
+
+      <section class="card test-box">
+        <h2>测试一条模拟来信</h2>
+        <div class="test-row"><input id="testMessage" placeholder="输入对方可能发来的消息" /><button id="testMatch" class="secondary">测试匹配</button></div>
+        <p id="testResult">尚未测试</p>
+      </section>
+
+      <footer><p id="notice"></p><button id="save" class="primary large">保存话术库</button></footer>
+    </main>
+    <script src="../src/core.js"></script>
+    <script src="../src/reply-core.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "智联邀约助手",
+  "version": "0.2.4",
+  "description": "在已登录的智联招聘企业页面中辅助筛选候选人、发起沟通并记录统计。",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["https://*.zhaopin.com/*"],
+  "action": {
+    "default_title": "智联邀约助手",
+    "default_popup": "popup/popup.html"
+  },
+  "options_page": "options/options.html",
+  "content_scripts": [
+    {
+      "matches": ["https://*.zhaopin.com/*"],
+      "js": ["src/core.js", "src/reply-core.js", "src/content.js", "src/reply-content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
